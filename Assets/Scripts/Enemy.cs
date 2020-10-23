@@ -9,11 +9,34 @@ public class Enemy : MonoBehaviour
 
     private Player _player;
 
+    private Animator _animator;
+
+    private Collider2D _collider;
+
     // Start is called before the first frame update
     void Start()
     {
 
         _player = GameObject.Find("Player").GetComponent<Player>();
+
+        if(_player == null)
+        {
+            Debug.LogError("Enemy::_player is NULL");
+        }
+
+        _collider = this.GetComponent<PolygonCollider2D>();
+
+        if(_collider == null)
+        {
+            Debug.LogError("Enemy::_collider is NULL");
+        }
+
+        _animator = this.GetComponent<Animator>();
+
+        if(_animator == null)
+        {
+            Debug.LogError("Enemy::_animator is NULL");
+        }
 
     }
 
@@ -47,8 +70,7 @@ public class Enemy : MonoBehaviour
 
             _player.OnHit();
 
-            Destroy(this.gameObject);
-
+            Explode();
         }
 
         if (other.CompareTag("Laser"))
@@ -58,7 +80,19 @@ public class Enemy : MonoBehaviour
 
             Destroy(other.gameObject);
 
-            Destroy(this.gameObject);
+            Explode();
         }
+    }
+
+
+    private void Explode()
+    {
+        _collider.enabled = false;
+
+        _animator.SetTrigger("OnEnemyDeath");
+
+        _speed = 0;
+
+        Destroy(this.gameObject, 2.5f);
     }
 }
