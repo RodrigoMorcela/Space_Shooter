@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
 
             float randomX = Random.Range(-8f, 8f);
 
-            Vector3 randomPos = new Vector3(randomX, 7, 0);
+            Vector3 randomPos = new Vector3(randomX, 9f, 0f);
 
             transform.position = randomPos;
         }

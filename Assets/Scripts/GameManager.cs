@@ -10,8 +10,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private bool _isGameOver;
 
+    private SpawnManager _spawnManager;
+
     private void Start()
     {
+
+        _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+
         _isGameOver = false;
     }
 
@@ -24,6 +29,11 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(1);
         }
         
+    }
+
+    public void StartGame()
+    {
+        _spawnManager.StartSpawning();
     }
 
     public void GameOver()
