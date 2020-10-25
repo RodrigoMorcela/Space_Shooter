@@ -28,6 +28,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _lowThruster;
 
+    [SerializeField]
+    private GameObject _oneLiveDamage;
+
+    [SerializeField]
+    private GameObject _twoLiveDamage;
+
     private float _canfire = -1f;
 
     [SerializeField]
@@ -173,6 +179,8 @@ public class Player : MonoBehaviour
 
         _life -= 1;
 
+        TakeDamage();
+
         _uiManager.UpdateLives(_life);
 
         if (_life < 1)
@@ -183,6 +191,19 @@ public class Player : MonoBehaviour
 
             _uiManager.GameOver();
         }
+
+    }
+
+    private void TakeDamage()
+    {
+        if(_life == 1)
+        {
+            _oneLiveDamage.SetActive(true);
+
+            return;
+        }
+
+        _twoLiveDamage.SetActive(true);
 
     }
 
