@@ -19,6 +19,21 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _playerShield;
 
+    [SerializeField]
+    private GameObject _highThruster;
+
+    [SerializeField]
+    private GameObject _mediumTruster;
+
+    [SerializeField]
+    private GameObject _lowThruster;
+
+    [SerializeField]
+    private GameObject _oneLiveDamage;
+
+    [SerializeField]
+    private GameObject _twoLiveDamage;
+
     private float _canfire = -1f;
 
     [SerializeField]
@@ -65,6 +80,10 @@ public class Player : MonoBehaviour
 
         _score = 0;
 
+        _highThruster.gameObject.SetActive(false);
+
+        _lowThruster.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -80,6 +99,29 @@ public class Player : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
+
+        if(verticalInput > 0)
+        {
+            _mediumTruster.SetActive(false);
+
+            _highThruster.SetActive(true);
+        }
+
+        if(verticalInput < 0)
+        {
+            _mediumTruster.SetActive(false);
+
+            _lowThruster.SetActive(true);
+        }
+
+        if(verticalInput == 0)
+        {
+            _lowThruster.SetActive(false);
+
+            _highThruster.SetActive(false);
+
+            _mediumTruster.SetActive(true);
+        }
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.4f, 9.4f), Mathf.Clamp(transform.position.y, -3.4f, 0.0f), 0);
 
@@ -137,6 +179,8 @@ public class Player : MonoBehaviour
 
         _life -= 1;
 
+        TakeDamage();
+
         _uiManager.UpdateLives(_life);
 
         if (_life < 1)
@@ -147,6 +191,19 @@ public class Player : MonoBehaviour
 
             _uiManager.GameOver();
         }
+
+    }
+
+    private void TakeDamage()
+    {
+        if(_life == 1)
+        {
+            _oneLiveDamage.SetActive(true);
+
+            return;
+        }
+
+        _twoLiveDamage.SetActive(true);
 
     }
 

@@ -225,7 +225,7 @@ MonoBehaviour:
     type: 3}
   _speedPowerUp: {fileID: 8295239882103356552, guid: a9322c93f83bc1f448d850a32236703f,
     type: 3}
-  _enemySpawnTime: 5
+  _enemySpawnTime: 3
   _powerUpSpawnTime: 10
 --- !u!4 &376350231
 Transform:
@@ -1339,3 +1339,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104421225}
   m_CullTransparentMesh: 0
+--- !u!1001 &1594013342279792313
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1594013341848905617, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594013341848905617, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594013341848905617, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594013341848905617, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594013341848905617, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594013341848905617, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594013341848905617, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594013341848905617, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594013341848905617, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594013341848905617, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594013341848905617, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594013341848905626, guid: 5b56f232390f5ac4091330f0c7ce0653,
+        type: 3}
+      propertyPath: m_Name
+      value: Asteroid
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5b56f232390f5ac4091330f0c7ce0653, type: 3}

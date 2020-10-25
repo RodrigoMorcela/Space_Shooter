@@ -22,7 +22,7 @@ public class SpawnManager : MonoBehaviour
     private GameObject _speedPowerUp;
 
     [SerializeField]
-    private float _enemySpawnTime = 5.0f;
+    private float _enemySpawnTime = 3.0f;
 
     [SerializeField]
     private float _powerUpSpawnTime = 10.0f;
@@ -32,10 +32,6 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(EnemySpawningRoutine());
-
-        StartCoroutine(PowerUpSpawningRoutine());
-
         _isPlayerDead = false;
     }
 
@@ -45,12 +41,21 @@ public class SpawnManager : MonoBehaviour
  
     }
 
+    public void StartSpawning()
+    {
+        StartCoroutine(EnemySpawningRoutine());
+
+        StartCoroutine(PowerUpSpawningRoutine());
+    }
+
     private IEnumerator EnemySpawningRoutine()
     {
 
+        yield return new WaitForSeconds(_enemySpawnTime);
+
         while (!_isPlayerDead) {
 
-            Vector3 randomPos = new Vector3(Random.Range(-8f, 8f), 7f, 0f);
+            Vector3 randomPos = new Vector3(Random.Range(-8f, 8f), 9f, 0f);
 
             if (_enemyPrefab != null)
             {
@@ -68,12 +73,15 @@ public class SpawnManager : MonoBehaviour
 
     private IEnumerator PowerUpSpawningRoutine()
     {
+
+        yield return new WaitForSeconds(_powerUpSpawnTime);
+
         while (!_isPlayerDead)
         {
 
             yield return new WaitForSeconds(_powerUpSpawnTime);
 
-            Vector3 randomPos = new Vector3(Random.Range(-8f, 8f), 7f, 0f);
+            Vector3 randomPos = new Vector3(Random.Range(-8f, 8f), 9f, 0f);
 
             int randomNumb = Random.Range(0, 3);
 
