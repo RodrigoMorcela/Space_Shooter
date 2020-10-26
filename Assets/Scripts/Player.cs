@@ -84,6 +84,10 @@ public class Player : MonoBehaviour
 
         _lowThruster.gameObject.SetActive(false);
 
+        _oneLiveDamage.gameObject.SetActive(false);
+
+        _twoLiveDamage.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
