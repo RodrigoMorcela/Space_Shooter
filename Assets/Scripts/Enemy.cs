@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float _speed = 4.0f;
 
+    [SerializeField]
+    private AudioSource _audioSourceExplosion;
+
     private Player _player;
 
     private Animator _animator;
@@ -18,6 +21,8 @@ public class Enemy : MonoBehaviour
     {
 
         _player = GameObject.Find("Player").GetComponent<Player>();
+
+        _audioSourceExplosion = GameObject.Find("Explosion_Source").GetComponent<AudioSource>();
 
         if(_player == null)
         {
@@ -90,6 +95,8 @@ public class Enemy : MonoBehaviour
         _collider.enabled = false;
 
         _animator.SetTrigger("OnEnemyDeath");
+
+        _audioSourceExplosion.Play();
 
         _speed = 0;
 

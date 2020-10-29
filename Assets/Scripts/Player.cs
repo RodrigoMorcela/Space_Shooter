@@ -63,6 +63,14 @@ public class Player : MonoBehaviour
 
     private int _score;
 
+    [SerializeField]
+    private AudioClip _laserShot;
+
+    [SerializeField]
+    private AudioClip _explosion;
+
+    private AudioSource _audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +79,8 @@ public class Player : MonoBehaviour
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
 
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+
+        _audioSource = GetComponent<AudioSource>();
 
         _isTripleShotActive = false;
 
@@ -160,6 +170,8 @@ public class Player : MonoBehaviour
                     Quaternion.identity
                     );
 
+                PlayLaserSound();
+
                 return;
             }
 
@@ -167,8 +179,17 @@ public class Player : MonoBehaviour
                 (_laserPrefab, 
                 new Vector3(transform.position.x, (transform.position.y + 1.26f), transform.position.z), 
                 Quaternion.identity);
+
+            PlayLaserSound();
             
-        } 
+        }
+    }
+
+    private void PlayLaserSound()
+    {
+        _audioSource.clip = _laserShot;
+
+        _audioSource.Play();
     }
 
     public void OnHit()
@@ -190,6 +211,10 @@ public class Player : MonoBehaviour
         if (_life < 1)
         {
             _spawnManager.PlayerDead();
+
+            _audioSource.clip = _explosion;
+
+            _audioSource.Play();
 
             Destroy(this.gameObject);
 

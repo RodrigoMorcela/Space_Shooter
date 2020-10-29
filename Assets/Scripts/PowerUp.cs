@@ -11,12 +11,16 @@ public class PowerUp : MonoBehaviour
     [SerializeField]
     private int _ID;
 
+    private AudioSource _audioSource;
+
     private Player _player;
 
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<Player>();
+
+        _audioSource = GameObject.Find("PowerUp_Source").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,6 +47,8 @@ public class PowerUp : MonoBehaviour
         {
 
             _player.OnPowerUp(this.GetComponent<PowerUp>());
+
+            _audioSource.Play();
 
             Destroy(this.gameObject);
         }

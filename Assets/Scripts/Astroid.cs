@@ -13,6 +13,9 @@ public class Astroid : MonoBehaviour
 
     private GameManager _gameManager;
 
+    [SerializeField]
+    private AudioSource _audioSourceExplosion;
+
     void Start()
     {
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
@@ -55,6 +58,8 @@ public class Astroid : MonoBehaviour
             );
 
         Destroy(explosion, 3);
+
+        _audioSourceExplosion.Play();
 
         _gameManager.StartGame();
 
