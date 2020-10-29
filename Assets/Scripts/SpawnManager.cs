@@ -122,4 +122,9 @@ public class SpawnManager : MonoBehaviour
     {
         _isPlayerDead = true;
     }
+
+    public bool isPlayerDead()
+    {
+        return _isPlayerDead;
+    }
 }

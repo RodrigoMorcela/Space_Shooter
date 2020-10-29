@@ -97,7 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fcd07b463fbf7499811390c67ad793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 4
+  _audioSourceExplosion: {fileID: 0}
+  _laser: {fileID: 2589772920106603294, guid: be58abb17e40b8b45bc1c5b640c06303, type: 3}
 --- !u!60 &1527008756713280059
 PolygonCollider2D:
   m_ObjectHideFlags: 0
